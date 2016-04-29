@@ -1,0 +1,50 @@
+<%= metamagic title: "MessageBro",
+     description: "This is a digital billboard for people to share ideas and start a dialog about different topics",
+     author: "Daniel Sjöström - d.sjostrom@me.com , Simon Ekdahl - Simon_Ekdahl@hotmail.com",
+     keywords: %w(Blog billboard discussion easy forum share ideas)
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>MessageBoard</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= metamagic %>
+</head>
+<body>
+
+  <div class="navbar navbar-default">
+    <div class="container">
+
+      <ul class="nav navbar-nav">
+
+
+      <li><%= link_to root_path do %>
+        <%= image_tag "MSGBRO-logowhite.png", class: "navbar-logo" %>
+      <% end %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Log In", new_user_session_path %></li>
+        <% end %>
+      </ul>
+      <% if user_signed_in? %>
+        <p><%= link_to "New Message", new_message_path, class: "navbar-right navbar-text navbar-link" %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+
+</body>
+</html>

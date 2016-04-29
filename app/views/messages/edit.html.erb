@@ -1,0 +1,11 @@
+<%
+meta title: @message.title,
+     description: @message.description,
+     author: @message.user.email,
+     keywords: %w(Edit Message MessageBro)
+%>
+
+
+<h1>Edit Message</h1>
+
+<%= render 'form' %>
