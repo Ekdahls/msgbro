@@ -39,5 +39,15 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  
+
 end
+
+ActionMailer::Base.smtp_settings = {
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['app50117781@heroku.com'],
+  :password       => ENV['a4idfsxn9807'],
+  :domain         => 'heroku.com',
+  :enable_starttls_auto => true
+}
