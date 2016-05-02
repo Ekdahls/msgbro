@@ -42,6 +42,9 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
 end
+
+config.action_mailer.default_url_options = { :host => 'heroku.com' }
+
 ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',
   :port           => '587',
